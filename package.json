@@ -1,0 +1,24 @@
+{
+  "name": "browserslist-new-relic",
+  "version": "1.0.0",
+  "description": "Generate a browserslist-stats.json from your New Relic Insights data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/syntactic-salt/browserslist-new-relic.git"
+  },
+  "keywords": [
+    "browserslist",
+    "browserslist-stats.json",
+    "new relic"
+  ],
+  "author": "Ken Pereira",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/syntactic-salt/browserslist-new-relic/issues"
+  },
+  "homepage": "https://github.com/syntactic-salt/browserslist-new-relic#readme"
+}
