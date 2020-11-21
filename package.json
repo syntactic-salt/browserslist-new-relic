@@ -2,9 +2,7 @@
   "name": "browserslist-new-relic",
   "version": "1.0.0",
   "description": "Generate a browserslist-stats.json from your New Relic Insights data",
-  "bin": {
-    "browserslist-new-relic": "./index.js"
-  },
+  "bin": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
