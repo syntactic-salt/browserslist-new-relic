@@ -1,6 +1,6 @@
-const getConfirguration = require('./getConfiguration');
-const getQueryResults = require('./getQueryResults');
-const transformResults = require('./transformResults');
+const getConfirguration = require('./source/getConfiguration');
+const getQueryResults = require('./source/getQueryResults');
+const transformResults = require('./source/transformResults');
 const fs = require('fs');
 
 const { apiKey, accountNumber, useUniqueSessions = false } = getConfirguration();
