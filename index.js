@@ -1,11 +1,19 @@
 #!/usr/bin/env node
 
 const fs = require("fs");
-const getOptions = require("./source/getOptions");
+const { getOptions } = require("./source/getOptions");
 const getQueryResults = require("./source/getQueryResults");
 const transformResults = require("./source/transformResults");
 
-const { apiKey, appId, accountId } = getOptions();
+let options;
+
+try {
+    options = getOptions();
+} catch (error) {
+    process.exit(1);
+}
+
+const { apiKey, appId, accountId } = options;
 
 getQueryResults(
     `SELECT count(*) FROM PageView FACET userAgentName, userAgentVersion, deviceType SINCE 30 DAYS AGO WHERE appId = ${appId}`,
