@@ -1,4 +1,4 @@
-const browsers = require('./browsers');
+const browsers = require("./browsers");
 
 const transformResults = ({ facets, totalResult }) => {
     const browserslistStats = {};

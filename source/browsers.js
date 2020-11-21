@@ -1,5 +1,5 @@
 const browsers = {
-    'Chrome:Desktop': 'chrome',
+    "Chrome:Desktop": "chrome",
 };
 
 module.exports = browsers;
