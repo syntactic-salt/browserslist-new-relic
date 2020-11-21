@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const getConfirguration = require("./source/getConfiguration");
 const getQueryResults = require("./source/getQueryResults");
 const transformResults = require("./source/transformResults");
