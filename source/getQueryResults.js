@@ -1,8 +1,8 @@
 const fetch = require("node-fetch");
 
-const getQueryResults = async (query, {apiKey, accountNumber}) => {
+const getQueryResults = async (query, {apiKey, accountId}) => {
     try {
-        const response = await fetch(`https://insights-api.newrelic.com/v1/accounts/${accountNumber}/query?nrql=${encodeURIComponent(query)}`, {
+        const response = await fetch(`https://insights-api.newrelic.com/v1/accounts/${accountId}/query?nrql=${encodeURIComponent(query)}`, {
             headers: {
                 Accept: "application/json",
                 "X-Query-Key": apiKey,
@@ -13,6 +13,7 @@ const getQueryResults = async (query, {apiKey, accountNumber}) => {
     } catch (err) {
         console.error("Response failed");
         console.error(err, err.stack);
+        process.exit(1);
     }
 };
 
