@@ -5,11 +5,11 @@ describe("transformResults module", () => {
         const givenData = {
             totalResult: { results: [{ count: 100 }] },
             facets: [
-                { name: ["Chrome", 86, "Desktop"], results: [{ count: 25 }] },
-                { name: ["Chrome", 86, "Desktop"], results: [{ count: 75 }] },
+                { name: ["Chrome", "86", "Desktop"], results: [{ count: 25 }] },
+                { name: ["Chrome", "86", "Desktop"], results: [{ count: 75 }] },
             ]
         };
-        const expectedData = { chrome: { 86: 100 } };
+        const expectedData = { chrome: { "86": 100 } };
         const actualData = transformResults(givenData);
 
         expect(actualData).toStrictEqual(expectedData);
@@ -19,11 +19,11 @@ describe("transformResults module", () => {
         const givenData = {
             totalResult: { results: [{ count: 100 }] },
             facets: [
-                { name: ["Chrome", 86, "Desktop"], results: [{ count: 25 }] },
-                { name: ["Chrome", 84, "Desktop"], results: [{ count: 75 }] },
+                { name: ["Chrome", "86", "Desktop"], results: [{ count: 25 }] },
+                { name: ["Chrome", "84", "Desktop"], results: [{ count: 75 }] },
             ]
         };
-        const expectedData = { chrome: { 86: 25, 84: 75 } };
+        const expectedData = { chrome: { "86": 25, "84": 75 } };
         const actualData = transformResults(givenData);
 
         expect(actualData).toStrictEqual(expectedData);
@@ -33,10 +33,10 @@ describe("transformResults module", () => {
         const givenData = {
             totalResult: { results: [{ count: 100 }] },
             facets: [
-                { name: ["Chrome", 86, "Desktop"], results: [{ count: 100 }] },
+                { name: ["Chrome", "86", "Desktop"], results: [{ count: 100 }] },
             ]
         };
-        const expectedData = { chrome: { 86: 100 } };
+        const expectedData = { chrome: { "86": 100 } };
         const actualData = transformResults(givenData);
 
         expect(actualData).toStrictEqual(expectedData);
