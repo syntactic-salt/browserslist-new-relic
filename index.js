@@ -20,6 +20,12 @@ getQueryResults(
     { apiKey, accountId }
 )
     .then((nrResults) => {
+        if (nrResults.error) {
+            console.error("Error getting results from New Relic.");
+            console.error(nrResults.error);
+            process.exit(1);
+        }
+
         const browserslistStats = JSON.stringify(transformResults(nrResults), null, 2);
         fs.writeFileSync("./browserslist-stats.json", browserslistStats);
     });

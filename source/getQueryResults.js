@@ -10,9 +10,9 @@ const getQueryResults = async (query, {apiKey, accountId}) => {
         });
 
         return await response.json();
-    } catch (err) {
-        console.error("Response failed");
-        console.error(err, err.stack);
+    } catch (error) {
+        console.error("Failed to get a response from the New Relic REST API.");
+        console.error(error, error.stack);
         process.exit(1);
     }
 };
