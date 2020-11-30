@@ -1,6 +1,6 @@
 {
   "name": "browserslist-new-relic",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Generate a browserslist-stats.json from your New Relic Insights data",
   "bin": {
     "browserslist-new-relic": "index.js"
@@ -13,6 +13,7 @@
     "url": "git+https://github.com/syntactic-salt/browserslist-new-relic.git"
   },
   "keywords": [
+    "browserslist-new-relic",
     "browserslist",
     "browserslist-stats.json",
     "new relic"
