@@ -48,4 +48,10 @@ or
 
 ## Options
 
-__Coming soon__
+| Option | Alias | Required | Description |
+|---|---|---|---|
+| --accountId | | Yes | Coming soon |
+| --apiKey | | Yes | Coming soon |
+| --appId | | Yes | Coming soon |
+| --debug | -d | No | Coming soon |
+| --help | -h | No | Coming soon |
