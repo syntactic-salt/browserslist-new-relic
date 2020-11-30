@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
 const fs = require("fs");
-const { getOptions } = require("./source/getOptions");
-const getQueryResults = require("./source/getQueryResults");
-const transformResults = require("./source/transformResults");
+const { getOptions } = require("./lib/getOptions");
+const getQueryResults = require("./lib/getQueryResults");
+const transformResults = require("./lib/transformResults");
 
 let options;
 
