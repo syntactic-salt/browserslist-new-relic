@@ -1,7 +1,7 @@
 {
   "name": "browserslist-new-relic",
   "version": "1.0.0-rc.0",
-  "description": "Generate a browserslist-stats.json from your New Relic Insights data",
+  "description": "A CLI tool that generates a custom usage data file for browserslist from your New Relic Browser data.",
   "bin": {
     "browserslist-new-relic": "index.js"
   },
