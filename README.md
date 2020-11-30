@@ -53,79 +53,47 @@ or
 
 ### `--accountId`
 
+The New Relic account ID that you want to retrieve data for. For information on
+[where to find your account ID](https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/account-id),
+check the New Relic docs.
+
 - **Alias:** None
 - **Default:** None
 - **Environment Variable:** `BROWSERSLIST_NEW_RELIC_ACCOUNT_ID`
 - **Required:** Yes
 
-**Alias:** None
-
-**Default:** None
-
-**Environment Variable:** `BROWSERSLIST_NEW_RELIC_ACCOUNT_ID`
-
-**Required:** Yes
-
-The New Relic account ID that you want to retrieve data for. For information on
-[where to find your account ID](https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/account-id),
-check the New Relic docs.
-
-| | |
-|---|---|
-| Alias | None |
-| Default | None |
-| Environment Variable | `BROWSERSLIST_NEW_RELIC_ACCOUNT_ID` |
-| Required | Yes |
-
 ### `--apiKey`
-
-**Alias:** None
-
-**Default:** None
-
-**Environment Variable:** `BROWSERSLIST_NEW_RELIC_API_KEY`
-
-**Required:** Yes
 
 A New Relic Insights query API key. For information on
 [creating a query API key](https://docs.newrelic.com/docs/insights/insights-api/get-data/query-insights-event-data-api),
 check the New Relic docs.
 
+- **Alias:** None
+- **Default:** None
+- **Environment Variable:** `BROWSERSLIST_NEW_RELIC_API_KEY`
+- **Required:** Yes
+
 ### `--appId`
-
-**Alias:** None
-
-**Default:** None
-
-**Environment Variable:** `BROWSERSLIST_NEW_RELIC_APP_ID`
-
-**Required:** Yes
 
 The New Relic Browser application ID that you want to retrieve data for. For more information on
 [where to find your application ID](https://docs.newrelic.com/docs/browser/browser-monitoring/configuration/browser-license-key-app-id),
 check the New Relic docs.
 
+- **Alias:** None
+- **Default:** None
+- **Environment Variable:** `BROWSERSLIST_NEW_RELIC_APP_ID`
+- **Required:** Yes
+
 ### `--debug`
-
-**Alias:** None
-
-**Default:** `false`
-
-**Environment Variable:** None
-
-**Required:** No
 
 Turns on various output used for debugging issues.
 
+- **Alias:** None
+- **Default:** `false`
+- **Environment Variable:** None
+- **Required:** No
+
 ### `--duration`
-
-**Alias:** None
-
-**Default:** `7`
-
-**Environment Variable:** None
-
-**Required:** No
 
 The number of days of browser usage data to fetch.
 
@@ -134,6 +102,11 @@ Relic's free tier (Lite) has a 1 day retention period for browser usage statisti
 (Lite), you will only get usage statistics for the past 1 day regardless of what you set here. For more information on
 [data retention periods](https://docs.newrelic.com/docs/accounts/original-accounts-billing/product-based-pricing/overview-data-retention-components),
 check the New Relic docs.
+
+- **Alias:** None
+- **Default:** `7`
+- **Environment Variable:** None
+- **Required:** No
 
 ### `--help`
 
@@ -146,6 +119,11 @@ check the New Relic docs.
 **Required:** No
 
 Outputs some helpful information about the command.
+
+- **Alias:** `-h`
+- **Default:** None
+- **Environment Variable:** None
+- **Required:** No
 
 ## Example Usage
 
