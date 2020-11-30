@@ -16,9 +16,8 @@ Check out the [Options](#options) section for specific details.
 
 __NPM >= 5.2__
 
-Using npx:
-
 In the root of your project run
+
 ```
 npx browserslist-new-relic --appId=NR_APPLICATION_ID --accountId=NR_ACCOUNT_ID --apiKey=NR_API_KEY
 ```
@@ -26,22 +25,26 @@ npx browserslist-new-relic --appId=NR_APPLICATION_ID --accountId=NR_ACCOUNT_ID -
 __NPM < 5.2__
 
 Install globally
+
 ```
 npm install -g browserslist-new-relic
 ```
 
 In the root of your project run
+
 ```
 browserslist-new-relic --appId=NR_APPLICATION_ID --accountId=NR_ACCOUNT_ID --apiKey=NR_API_KEY
 ```
 
 Now that you've successfully run the command you'll have generated `browserslist-stats.json` in your project's root
 directory. This file contains your custom usage data from New Relic. In your browserslist config you can now do things like:
+
 ```
 > 0.5% in my stats
 ```
 
 or
+
 ```
 > 0.5% in my stats, > 1% in US
 ```
@@ -50,9 +53,16 @@ or
 
 ### `--accountId`
 
+- **Alias:** None
+- **Default:** None
+- **Environment Variable:** `BROWSERSLIST_NEW_RELIC_ACCOUNT_ID`
+- **Required:** Yes
+
 **Alias:** None
 
 **Default:** None
+
+**Environment Variable:** `BROWSERSLIST_NEW_RELIC_ACCOUNT_ID`
 
 **Required:** Yes
 
@@ -60,11 +70,20 @@ The New Relic account ID that you want to retrieve data for. For information on
 [where to find your account ID](https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/account-id),
 check the New Relic docs.
 
+| | |
+|---|---|
+| Alias | None |
+| Default | None |
+| Environment Variable | `BROWSERSLIST_NEW_RELIC_ACCOUNT_ID` |
+| Required | Yes |
+
 ### `--apiKey`
 
 **Alias:** None
 
 **Default:** None
+
+**Environment Variable:** `BROWSERSLIST_NEW_RELIC_API_KEY`
 
 **Required:** Yes
 
@@ -78,6 +97,8 @@ check the New Relic docs.
 
 **Default:** None
 
+**Environment Variable:** `BROWSERSLIST_NEW_RELIC_APP_ID`
+
 **Required:** Yes
 
 The New Relic Browser application ID that you want to retrieve data for. For more information on
@@ -90,6 +111,8 @@ check the New Relic docs.
 
 **Default:** `false`
 
+**Environment Variable:** None
+
 **Required:** No
 
 Turns on various output used for debugging issues.
@@ -99,6 +122,8 @@ Turns on various output used for debugging issues.
 **Alias:** None
 
 **Default:** `7`
+
+**Environment Variable:** None
 
 **Required:** No
 
@@ -116,6 +141,34 @@ check the New Relic docs.
 
 **Default:** None
 
+**Environment Variable:** None
+
 **Required:** No
 
 Outputs some helpful information about the command.
+
+## Example Usage
+
+With all required options
+
+```
+browserslist-new-relic --appId=48927374561 --accountId=45182429 --apiKey=Hus4-hsSDFjls802dsSfjI82-PZhsqotm2H86
+```
+
+With all required options as environment variables
+
+```
+browserslist-new-relic
+```
+
+With custom duration of 2 days
+
+```
+browserslist-new-relic --duration=2 --appId=48927374561 --accountId=45182429 --apiKey=Hus4-hsSDFjls802dsSfjI82-PZhsqotm2H86
+```
+
+With debugging output
+
+```
+browserslist-new-relic --debug --appId=48927374561 --accountId=45182429 --apiKey=Hus4-hsSDFjls802dsSfjI82-PZhsqotm2H86
+```
