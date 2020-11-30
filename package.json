@@ -6,7 +6,9 @@
     "browserslist-new-relic": "index.js"
   },
   "scripts": {
-    "release:rc": "release-it --preRelease=rc --npm.tag=next",
+    "build": "rm -rf ./dist && mkdirp ./dist/lib && cp -a ./lib/*.js ./dist/lib/ && cp -a ./{index.js,package.json,LICENSE,README.md} ./dist/",
+    "release": "npm run test && npm run build",
+    "release:rc": "npm run release && release-it --preRelease=rc --npm.tag=next --npm.publishPath=./dist/",
     "test": "jest"
   },
   "repository": {
@@ -31,6 +33,7 @@
   },
   "devDependencies": {
     "jest": "26.6.3",
+    "mkdirp": "1.0.4",
     "release-it": "14.2.2"
   }
 }
