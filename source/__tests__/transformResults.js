@@ -41,4 +41,17 @@ describe("transformResults module", () => {
 
         expect(actualData).toStrictEqual(expectedData);
     });
+
+    test("outputs debug messages", () => {
+        const givenData = {
+            totalResult: { results: [{ count: 100 }] },
+            facets: [
+                { name: ["Chrome", "86", "Desktop"], results: [{ count: 100 }] },
+            ]
+        };
+        const debugSpy = jest.spyOn(console, 'debug');
+        process.env.DEBUG = true;
+        transformResults(givenData);
+        expect(debugSpy).toHaveBeenCalled();
+    });
 });
