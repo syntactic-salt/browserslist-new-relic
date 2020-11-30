@@ -97,11 +97,11 @@ Turns on various output used for debugging issues.
 
 The number of days of browser usage data to fetch.
 
-Note that New Relic's data retention period varies depending on your subscription level. At the time of writing, New
+**Note: New Relic's data retention period varies depending on your subscription level. At the time of writing, New
 Relic's free tier (Lite) has a 1 day retention period for browser usage statistics. That means if you have free tier
 (Lite), you will only get usage statistics for the past 1 day regardless of what you set here. For more information on
 [data retention periods](https://docs.newrelic.com/docs/accounts/original-accounts-billing/product-based-pricing/overview-data-retention-components),
-check the New Relic docs.
+check the New Relic docs.**
 
 - **Alias:** None
 - **Default:** `7`
@@ -110,15 +110,7 @@ check the New Relic docs.
 
 ### `--help`
 
-**Alias:** `-h`
-
-**Default:** None
-
-**Environment Variable:** None
-
-**Required:** No
-
-Outputs some helpful information about the command.
+**Outputs some helpful information about the command.**
 
 - **Alias:** `-h`
 - **Default:** None
@@ -127,25 +119,25 @@ Outputs some helpful information about the command.
 
 ## Example Usage
 
-With all required options
+**With all required options**
 
 ```
 browserslist-new-relic --appId=48927374561 --accountId=45182429 --apiKey=Hus4-hsSDFjls802dsSfjI82-PZhsqotm2H86
 ```
 
-With all required options as environment variables
+**With all required options as environment variables**
 
 ```
 browserslist-new-relic
 ```
 
-With custom duration of 2 days
+**With custom duration of 2 days**
 
 ```
 browserslist-new-relic --duration=2 --appId=48927374561 --accountId=45182429 --apiKey=Hus4-hsSDFjls802dsSfjI82-PZhsqotm2H86
 ```
 
-With debugging output
+**With debugging output**
 
 ```
 browserslist-new-relic --debug --appId=48927374561 --accountId=45182429 --apiKey=Hus4-hsSDFjls802dsSfjI82-PZhsqotm2H86
