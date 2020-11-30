@@ -16,7 +16,7 @@ try {
 const { apiKey, appId, accountId, days } = options;
 const query = `SELECT count(*) FROM PageView FACET userAgentName, userAgentVersion, deviceType SINCE ${days} DAYS AGO WHERE appId = ${appId}`;
 
-if (process.env.DEBUG) {
+if (process.env.BROWSERSLIST_NEW_RELIC_DEBUG) {
     console.debug("\nNEW RELIC QUERY - NRQL");
     console.debug(query);
 }
