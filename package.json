@@ -6,6 +6,7 @@
     "browserslist-new-relic": "index.js"
   },
   "scripts": {
+    "release:rc": "release-it --preRelease=rc --npm.tag=next",
     "test": "jest"
   },
   "repository": {
