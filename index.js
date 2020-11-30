@@ -13,12 +13,15 @@ try {
     process.exit(1);
 }
 
-const { apiKey, appId, accountId } = options;
+const { apiKey, appId, accountId, days } = options;
+const query = `SELECT count(*) FROM PageView FACET userAgentName, userAgentVersion, deviceType SINCE ${days} DAYS AGO WHERE appId = ${appId}`;
 
-getQueryResults(
-    `SELECT count(*) FROM PageView FACET userAgentName, userAgentVersion, deviceType SINCE 30 DAYS AGO WHERE appId = ${appId}`,
-    { apiKey, accountId }
-)
+if (process.env.DEBUG) {
+    console.debug("\nNEW RELIC QUERY - NRQL");
+    console.debug(query);
+}
+
+getQueryResults(query, { apiKey, accountId })
     .then((nrResults) => {
         if (nrResults.error) {
             console.error("Error getting results from New Relic.");

@@ -4,6 +4,7 @@ const optionDefinitions = [
     { name: "accountId", type: Number, required: true },
     { name: "appId", type: Number, required: true },
     { name: "apiKey", type: String, required: true },
+    { name: "days", type: Number, defaultValue: 7},
     { name: "debug", type: Boolean },
 ];
 
