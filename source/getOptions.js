@@ -4,14 +4,31 @@ const optionDefinitions = [
     { name: "accountId", type: Number, required: true },
     { name: "appId", type: Number, required: true },
     { name: "apiKey", type: String, required: true },
+    { name: "debug", type: Boolean },
 ];
 
-const getOptions = () => {
-    const options = commandLineArgs(optionDefinitions);
+const getOptions = (debug = false) => {
+    let options = {};
+
+    try {
+        options = commandLineArgs(optionDefinitions, { partial: true });
+    } catch (error) {
+        console.error(error);
+    }
+
+    if (options.debug) {
+        process.env.DEBUG = true;
+    }
+
+    if (process.env.DEBUG) {
+        console.debug("\nCOMMAND LINE OPTIONS:");
+        console.debug(options);
+    }
 
     optionDefinitions.forEach(({ name, required }) => {
         if (required && options[name] === undefined) {
-            console.error(`You did not pass a required command line argument: ${name}`);
+            console.error(`Missing --${name} option.`);
+            console.error("Try 'browserslist-new-relic --help' for more information.");
             throw new Error();
         }
     });
