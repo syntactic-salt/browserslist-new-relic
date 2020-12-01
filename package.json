@@ -8,7 +8,7 @@
   "scripts": {
     "build": "rm -rf ./dist && mkdirp ./dist/lib && cp -a ./lib/*.js ./dist/lib/ && cp -a ./{index.js,package.json,LICENSE,README.md} ./dist/",
     "release": "npm run release-prep && release-it --npm.publishPath=./dist/",
-    "release:rc": "npm run release-prep && release-it --preRelease=rc --npm.tag=next --npm.publishPath=./dist/",
+    "release:rc": "release-it --preRelease=rc --npm.tag=next --npm.publishPath=./dist/ --hook.after:bump='npm run release-prep'",
     "release-prep": "npm run test && npm run build",
     "test": "jest"
   },
