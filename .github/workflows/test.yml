@@ -2,7 +2,10 @@ name: Tests
 
 on:
   pull_request:
-    branches: [ develop ]
+    branches:
+      - develop
+      - main
+  push:
 
 jobs:
   test:
@@ -15,7 +18,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Runs on Node.js v${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
