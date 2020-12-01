@@ -90,7 +90,7 @@ Turns on various output used for debugging issues.
 
 - **Alias:** None
 - **Default:** `false`
-- **Environment Variable:** `BROWSERSLIST_NEW_RELIC_DEBUG`
+- **Environment Variable:** None
 - **Required:** No
 
 ### `--duration`
