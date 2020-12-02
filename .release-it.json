@@ -1,8 +1,0 @@
-{
-  "hooks": {
-    "after:bump": "npm run build"
-  },
-  "npm": {
-    "publishPath": "./dist/"
-  }
-}

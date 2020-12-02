@@ -1,0 +1,44 @@
+name: stage-release
+
+on:
+  pull_request:
+    branches:
+      - main
+
+env:
+  PR_TITLE: ${{ github.event.pull_request.title }}
+
+jobs:
+  check-release-type:
+    runs-on: ubuntu-latest
+    steps:
+      - if: ${{ !startsWith(env.PR_TITLE, '[rc]') && !startsWith(env.PR_TITLE, '[patch]') && !startsWith(env.PR_TITLE, '[minor]') && !startsWith(env.PR_TITLE, '[major]') }}
+        run: echo 'The PR title does not contain a valid release type. Exiting...'; exit 1;
+
+  check-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm ci
+      - run: npm run build
+
+  stage-release:
+    needs: [check-release-type, check-build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: echo ${{ github.actor }}
+      - run: npm ci
+      - run: git config user.name 'GitHub Action'; git config user.email 'action@github.com';
+      - if: ${{ startsWith(env.PR_TITLE, '[rc]') }}
+        run: npm run release:rc

@@ -1,0 +1,41 @@
+name: Publish
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm ci
+      - run: npm test
+
+  publish-npm:
+    needs: unit-tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - run: npm ci
+      - run: npm run build
+      - run: echo ${{ github.ref }}
+      - run: echo Setting release tag to 'next'.
+        env:
+          NPM_RELEASE_TAG: next
+      - run: echo This is not a release candidate. Setting release tag to 'latest'.
+        if: ${{ !contains(github.ref, '-rc.') }}
+        env:
+          NPM_RELEASE_TAG: latest
+      - run: echo ${{ env.NPM_RELEASE_TAG }}
+      - run: npm publish dist/ --tag ${{ env.NPM_RELEASE_TAG }} --dry-run
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_access_token }}
