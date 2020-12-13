@@ -6,9 +6,12 @@
     "browserslist-new-relic": "index.js"
   },
   "scripts": {
-    "build": "rm -rf ./dist && mkdirp ./dist/lib && cp -a ./lib/*.js ./dist/lib/ && cp -a ./{index.js,package.json,LICENSE,README.md} ./dist/",
+    "build": "rm -rf ./dist && mkdirp ./dist/lib && cp -a ./lib/*.js ./dist/lib/ && cp -a ./index.js ./dist/ && cp -a ./package.json ./dist/ && cp -a ./LICENSE ./dist/ && cp -a ./README.md ./dist/",
     "release": "npm run release-prep && release-it --npm.publishPath=./dist/",
-    "release:rc": "npm run test && release-it --preRelease=rc --npm.tag=next",
+    "stage:major": "release-it major --ci --no-npm --github.release",
+    "stage:minor": "release-it minor --ci --no-npm --github.release",
+    "stage:patch": "release-it patch --ci --no-npm --github.release",
+    "stage:rc": "release-it --ci --preRelease=rc --no-npm --github.release",
     "test": "jest"
   },
   "repository": {
