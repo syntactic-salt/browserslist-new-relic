@@ -1,0 +1,49 @@
+name: 'Stage release'
+
+on:
+  push:
+    branches:
+      - release/rc
+      - release/patch
+      - release/minor
+      - release/major
+
+jobs:
+  check-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 15
+      - run: npm ci
+      - run: npm run build
+
+  create-release:
+    needs: [check-build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 15
+      - run: npm ci
+      - run: git config user.name 'GitHub Action'; git config user.email 'action@github.com';
+      - if: ${{ endsWith(github.head_ref, '/rc') }}
+        run: npm run stage:rc
+      - if: ${{ endsWith(github.head_ref, '/patch') }}
+        run: npm run stage:patch
+      - if: ${{ endsWith(github.head_ref, '/minor') }}
+        run: npm run stage:minor
+      - if: ${{ endsWith(github.head_ref, '/major') }}
+        run: npm run stage:major
+
+  create-pull-request:
+    needs: [create-release]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: 'master'
+          github_token: ${{ secrets.GITHUB_TOKEN }}
