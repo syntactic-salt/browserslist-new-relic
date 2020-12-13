@@ -22,15 +22,15 @@ jobs:
   create-release:
     needs: [check-build]
     runs-on: ubuntu-latest
-    env:
-      GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
       - uses: actions/setup-node@v1
         with:
           node-version: 15
       - run: npm ci
-      - run: git config user.name 'GitHub Action'; git config user.email 'action@github.com';
+      - run: git config user.name 'github-actions'; git config user.email 'github-actions@github.com';
       - if: ${{ endsWith(github.ref, '/rc') }}
         run: npm run stage:rc
       - if: ${{ endsWith(github.ref, '/patch') }}
