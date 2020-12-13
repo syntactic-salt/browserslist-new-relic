@@ -11,7 +11,7 @@
     "stage:major": "release-it major --ci --no-npm --github.release",
     "stage:minor": "release-it minor --ci --no-npm --github.release",
     "stage:patch": "release-it patch --ci --no-npm --github.release",
-    "stage:rc": "release-it --ci --preRelease=rc --no-npm --github.release",
+    "stage:rc": "release-it --ci --preRelease=rc --npm.tag=next --no-npm.publish --github.release",
     "test": "jest"
   },
   "repository": {
