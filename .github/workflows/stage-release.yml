@@ -29,14 +29,13 @@ jobs:
           node-version: 15
       - run: npm ci
       - run: git config user.name 'GitHub Action'; git config user.email 'action@github.com';
-      - run: echo ${{ github.head_ref }}
-      - if: ${{ endsWith(github.head_ref, '/rc') }}
+      - if: ${{ endsWith(github.ref, '/rc') }}
         run: npm run stage:rc
-      - if: ${{ endsWith(github.head_ref, '/patch') }}
+      - if: ${{ endsWith(github.ref, '/patch') }}
         run: npm run stage:patch
-      - if: ${{ endsWith(github.head_ref, '/minor') }}
+      - if: ${{ endsWith(github.ref, '/minor') }}
         run: npm run stage:minor
-      - if: ${{ endsWith(github.head_ref, '/major') }}
+      - if: ${{ endsWith(github.ref, '/major') }}
         run: npm run stage:major
 
   create-pull-request:
