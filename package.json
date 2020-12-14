@@ -1,6 +1,6 @@
 {
   "name": "browserslist-new-relic",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-rc.2",
   "description": "A CLI tool that generates a custom usage data file for browserslist from your New Relic Browser data.",
   "bin": {
     "browserslist-new-relic": "index.js"
