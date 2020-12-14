@@ -1,0 +1,31 @@
+name: 'Publish release candidate'
+on:
+  push:
+    branches:
+      - release-candidate
+jobs:
+  check-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 15
+      - run: npm ci
+      - run: npm run build
+
+  publish:
+    needs: [check-build]
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      NPM_TOKEN: ${{ secrets.NPM_ACCESS_TOKEN }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 15
+      - run: npm ci
+      - run: git config user.name 'github-actions'; git config user.email 'github-actions@github.com';
+      - run: npm run build
+      - run: npm run release:rc

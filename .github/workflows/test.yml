@@ -1,21 +1,15 @@
 name: Tests
-
 on:
-  pull_request:
-    branches:
-      - develop
-      - main
   push:
-
+    branches-ignore:
+      - master
+      - release-candidate
 jobs:
-  test:
-
+  unit-tests:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 14.x]
-
+        node-version: [10.x, 12.x, 14.x, 15.x]
     steps:
     - uses: actions/checkout@v2
     - name: Runs on Node.js v${{ matrix.node-version }}
