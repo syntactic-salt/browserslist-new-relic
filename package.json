@@ -7,7 +7,7 @@
   },
   "scripts": {
     "build": "rm -rf ./dist && mkdirp ./dist/lib && cp -a ./lib/*.js ./dist/lib/ && cp -a ./index.js ./dist/ && cp -a ./package.json ./dist/ && cp -a ./LICENSE ./dist/ && cp -a ./README.md ./dist/",
-    "release:rc": "release-it --ci --no-increment --preRelease=rc --npm.skipChecks --npm.tag=next npm.publishPath=dist/ --github.release",
+    "release:rc": "release-it --ci --preRelease=rc --npm.skipChecks --npm.tag=next npm.publishPath=dist/ --github.release",
     "test": "jest"
   },
   "repository": {
