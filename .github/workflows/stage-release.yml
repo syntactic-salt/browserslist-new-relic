@@ -1,12 +1,9 @@
 name: 'Stage release'
 
 on:
-  push:
-    branches:
-      - release/rc
-      - release/patch
-      - release/minor
-      - release/major
+  create:
+    tags:
+      - '[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   check-build:
