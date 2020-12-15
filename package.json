@@ -1,12 +1,13 @@
 {
   "name": "browserslist-new-relic",
-  "version": "1.0.0-rc.3",
+  "version": "1.0.0-rc.4",
   "description": "A CLI tool that generates a custom usage data file for browserslist from your New Relic Browser data.",
   "bin": {
     "browserslist-new-relic": "index.js"
   },
   "scripts": {
     "build": "rm -rf ./dist && mkdirp ./dist/lib && cp -a ./lib/*.js ./dist/lib/ && cp -a ./index.js ./dist/ && cp -a ./package.json ./dist/ && cp -a ./LICENSE ./dist/ && cp -a ./README.md ./dist/",
+    "clean": "rm -rf dist/ coverage/ node_modules/",
     "test": "jest"
   },
   "repository": {
