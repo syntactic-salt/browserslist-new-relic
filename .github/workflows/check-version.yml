@@ -1,0 +1,15 @@
+name: check-version
+on:
+  push:
+    branches-ignore:
+      - master
+      - release-candidate
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 15.x
+      - uses: ./.github/actions/check-version
