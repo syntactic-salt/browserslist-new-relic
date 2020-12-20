@@ -1,5 +1,0 @@
-name: 'Check Version'
-description: 'Check to see if the package.json version changed'
-runs:
-  using: 'node12'
-  main: 'index.js'
