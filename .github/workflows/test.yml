@@ -3,7 +3,6 @@ on:
   push:
     branches-ignore:
       - master
-      - release-candidate
 jobs:
   unit-tests:
     runs-on: ubuntu-latest
