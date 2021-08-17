@@ -142,3 +142,7 @@ browserslist-new-relic --duration=2 --appId=48927374561 --accountId=45182429 --a
 ```
 browserslist-new-relic --debug --appId=48927374561 --accountId=45182429 --apiKey=Hus4-hsSDFjls802dsSfjI82-PZhsqotm2H86
 ```
+
+## Issues
+
+Please report any issues on [GitHub](https://github.com/syntactic-salt/browserslist-new-relic/issues).
