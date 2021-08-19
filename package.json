@@ -1,7 +1,7 @@
 {
   "name": "browserslist-new-relic",
-  "version": "1.0.0",
-  "description": "A CLI tool that generates a custom usage data file for browserslist from your New Relic Browser data.",
+  "version": "1.0.1",
+  "description": "A CLI tool that generates New Relic browser statistics for browserslist.",
   "bin": {
     "browserslist-new-relic": "index.js"
   },
@@ -15,10 +15,15 @@
     "url": "git+https://github.com/syntactic-salt/browserslist-new-relic.git"
   },
   "keywords": [
-    "browserslist-new-relic",
+    "browsers",
     "browserslist",
-    "browserslist-stats.json",
-    "new relic"
+    "caniuse",
+    "data",
+    "insights",
+    "new",
+    "new-relic",
+    "newrelic",
+    "relic"
   ],
   "author": "Ken Pereira",
   "license": "MIT",
