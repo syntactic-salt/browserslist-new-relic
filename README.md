@@ -1,7 +1,7 @@
 # browserslist-new-relic
 
 A CLI tool that generates a [custom usage data](https://github.com/browserslist/browserslist#custom-usage-data) file for
-[browserslist](https://github.com/browserslist/browserslist) from your
+[Browserslist](https://github.com/browserslist/browserslist) from your
 [New Relic Browser](https://newrelic.com/products/browser-monitoring) data.
 
 ## How to use
