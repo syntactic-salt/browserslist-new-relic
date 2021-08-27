@@ -15,7 +15,7 @@ try {
 }
 
 const { apiKey, appId, accountId, duration } = options;
-const query = `SELECT count(*) FROM PageView FACET userAgentName, userAgentVersion, deviceType SINCE ${duration} DAYS AGO WHERE appId = ${appId}`;
+const query = `SELECT count(*) FROM PageView FACET userAgentName, userAgentVersion, deviceType SINCE ${duration} DAYS AGO WHERE appId = ${appId} LIMIT MAX`;
 
 if (process.env[optionDefinitions.debug.envVar]) {
     console.debug("\nNEW RELIC QUERY - NRQL");
