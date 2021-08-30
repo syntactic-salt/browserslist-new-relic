@@ -1,6 +1,6 @@
 {
   "name": "browserslist-new-relic",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A CLI tool that generates New Relic browser statistics for browserslist.",
   "bin": {
     "browserslist-new-relic": "index.js"
