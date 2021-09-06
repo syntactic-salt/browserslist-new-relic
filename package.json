@@ -1,7 +1,7 @@
 {
   "name": "browserslist-new-relic",
-  "version": "1.0.2",
-  "description": "A CLI tool that generates New Relic browser statistics for browserslist.",
+  "version": "1.1.0",
+  "description": "Generate a custom usage data file for Browserslist from your New Relic Browser data.",
   "bin": {
     "browserslist-new-relic": "index.js"
   },
@@ -32,11 +32,11 @@
   },
   "homepage": "https://github.com/syntactic-salt/browserslist-new-relic#readme",
   "dependencies": {
-    "command-line-args": "5.2.0",
-    "node-fetch": "2.6.1"
+    "node-fetch": "2.6.1",
+    "yargs": "17.1.1"
   },
   "devDependencies": {
-    "jest": "27.0.6",
+    "jest": "27.1.0",
     "mkdirp": "1.0.4"
   }
 }

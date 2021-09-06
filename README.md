@@ -117,6 +117,15 @@ check the New Relic docs.**
 - **Environment Variable:** None
 - **Required:** No
 
+### `--version`
+
+**Outputs some helpful information about the command.**
+
+- **Alias:** None
+- **Default:** None
+- **Environment Variable:** None
+- **Required:** No
+
 ## Example Usage
 
 **With all required options**
