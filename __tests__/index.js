@@ -48,14 +48,14 @@ afterEach(() => {
 
 describe("main file", () => {
     test("exits when failing to get new relic results", async () => {
-        getQueryResults.mockResolvedValueOnce({ error: 'Invalid query' });
-        jest.spyOn(console, 'error').mockImplementation(() => {});
-        jest.spyOn(process, 'exit'). mockImplementationOnce(() => {});
+        getQueryResults.mockRejectedValueOnce(new Error("Have you tried turning it off and on again?"));
+        jest.spyOn(console, "error").mockImplementation(() => {});
+        jest.spyOn(process, "exit"). mockImplementation(() => {});
         jest.isolateModules(() => {
             require("../index");
         });
         await new Promise((resolve) => setTimeout(resolve, 50));
-        expect(console.error).toHaveBeenCalledTimes(2);
+        expect(console.error).toHaveBeenCalledTimes(1);
         expect(process.exit).toHaveBeenCalledTimes(1);
     });
 

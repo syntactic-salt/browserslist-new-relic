@@ -37,23 +37,23 @@ const argv = yargs(hideBin(process.argv))
     .help()
     .argv;
 
-const { apiKey, appId, accountId, duration, debug } = getOptions(argv);
-const query = `SELECT count(*) FROM PageView FACET userAgentName, userAgentVersion, deviceType SINCE ${duration} DAYS AGO WHERE appId = ${appId} LIMIT MAX`;
+(async function () {
+    const { apiKey, appId, accountId, duration, debug } = getOptions(argv);
+    const query = `SELECT count(*) FROM PageView FACET userAgentName, userAgentVersion, deviceType SINCE ${duration} DAYS AGO WHERE appId = ${appId} LIMIT MAX`;
 
-if (debug) {
-    console.debug("\nNEW RELIC QUERY - NRQL");
-    console.debug(query);
-}
+    if (debug) {
+        console.debug("\nNEW RELIC QUERY - NRQL");
+        console.debug(query);
+    }
 
-getQueryResults(query, { apiKey, accountId })
-    .then((nrResults) => {
-        if (nrResults.error) {
-            console.error("Error getting results from New Relic.");
-            console.error(nrResults.error);
-            process.exit(1);
-        } else {
-            const browserslistStats = JSON.stringify(transformResults(nrResults), null, 2);
-            fs.writeFileSync("./browserslist-stats.json", browserslistStats);
-            console.log("Finished generating browserslist-stats.json");
-        }
-    });
+    try {
+        const newRelicResults = await getQueryResults(query, {apiKey, accountId});
+        const browserslistStats = JSON.stringify(transformResults(newRelicResults), null, 2);
+        fs.writeFileSync("./browserslist-stats.json", browserslistStats);
+    } catch (error) {
+        console.error(error, error.stack);
+        process.exit(1);
+    }
+
+    console.info("Finished generating browserslist-stats.json");
+}());
