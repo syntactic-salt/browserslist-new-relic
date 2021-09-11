@@ -4,8 +4,9 @@
 # dependencies
 ./node_modules/
 
-# ci
+# test
 coverage/
+browserslist-stats.json
 
 # build
 ./dist/
