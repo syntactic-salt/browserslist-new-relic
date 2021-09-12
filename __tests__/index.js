@@ -29,7 +29,7 @@ jest.mock('../lib/getOptions', () => {
 beforeAll(() => {
     jest.spyOn(console, 'log').mockImplementation(() => {});
     jest.spyOn(console, 'debug').mockImplementation(() => {});
-    jest.spyOn(console, 'info').mockImplementation((() => {}));
+    jest.spyOn(console, 'info').mockImplementation(() => {});
     jest.spyOn(fs, 'writeFileSync').mockImplementation(() => {});
 });
 
@@ -48,16 +48,16 @@ afterEach(() => {
 });
 
 describe('main file', () => {
-    test('exits when failing to get new relic results', async () => {
-        getQueryResults.mockRejectedValueOnce(new Error('Have you tried turning it off and on again?'));
+    test('outputs an error when failing to get new relic results', async () => {
+        getQueryResults.mockRejectedValueOnce(
+            new Error('Have you tried turning it off and on again?')
+        );
         jest.spyOn(console, 'error').mockImplementation(() => {});
-        jest.spyOn(process, 'exit'). mockImplementation(() => {});
         jest.isolateModules(() => {
             require('../index');
         });
         await new Promise((resolve) => setTimeout(resolve, 50));
         expect(console.error).toHaveBeenCalledTimes(1);
-        expect(process.exit).toHaveBeenCalledTimes(1);
     });
 
     test('writes a custom usage data file', async () => {
