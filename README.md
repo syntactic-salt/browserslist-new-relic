@@ -17,7 +17,7 @@ Check out the [Options](#options) section for specific details.
 In the root of your project run
 
 ```
-npx browserslist-new-relic --appId=NR_APPLICATION_ID --accountId=NR_ACCOUNT_ID --apiKey=NR_API_KEY
+npx browserslist-new-relic --appId <application id> --accountId <account id> --apiKey <api key>
 ```
 
 Now that you've successfully run the command you'll have generated `browserslist-stats.json` in your project's root
@@ -35,13 +35,23 @@ or
 
 ## Options
 
+```
+--version    Show version number                                     [boolean]
+--accountId  New Relic account ID                          [string] [required]
+--apiKey     New Relic Insights query API key              [string] [required]
+--appId      New Relic Browser application ID              [string] [required]
+--debug      Turn on debugging output               [boolean] [default: false]
+--duration   Days of browser usage to fetch              [number] [default: 7]
+--help       Show help                                               [boolean]
+```
+
 ### `--accountId`
 
 The New Relic account ID that you want to retrieve data for. For information on
 [where to find your account ID](https://docs.newrelic.com/docs/accounts/accounts-billing/account-setup/account-id),
 check the New Relic docs.
 
-- **Alias:** None
+
 - **Default:** None
 - **Environment Variable:** `BROWSERSLIST_NEW_RELIC_ACCOUNT_ID`
 - **Required:** Yes
@@ -52,7 +62,6 @@ A New Relic Insights query API key. For information on
 [creating a query API key](https://docs.newrelic.com/docs/insights/insights-api/get-data/query-insights-event-data-api),
 check the New Relic docs.
 
-- **Alias:** None
 - **Default:** None
 - **Environment Variable:** `BROWSERSLIST_NEW_RELIC_API_KEY`
 - **Required:** Yes
@@ -63,16 +72,14 @@ The New Relic Browser application ID that you want to retrieve data for. For mor
 [where to find your application ID](https://docs.newrelic.com/docs/browser/browser-monitoring/configuration/browser-license-key-app-id),
 check the New Relic docs.
 
-- **Alias:** None
 - **Default:** None
 - **Environment Variable:** `BROWSERSLIST_NEW_RELIC_APP_ID`
 - **Required:** Yes
 
 ### `--debug`
 
-Turns on various output used for debugging issues.
+Turns on output used for debugging issues.
 
-- **Alias:** None
 - **Default:** `false`
 - **Environment Variable:** None
 - **Required:** No
@@ -87,16 +94,14 @@ Relic's free tier (Lite) has a 1 day retention period for browser usage statisti
 [data retention periods](https://docs.newrelic.com/docs/accounts/original-accounts-billing/product-based-pricing/overview-data-retention-components),
 check the New Relic docs.**
 
-- **Alias:** None
 - **Default:** `7`
 - **Environment Variable:** None
 - **Required:** No
 
 ### `--help`
 
-**Outputs some helpful information about the command.**
+**Outputs information about the options.**
 
-- **Alias:** `-h`
 - **Default:** None
 - **Environment Variable:** None
 - **Required:** No
@@ -105,7 +110,6 @@ check the New Relic docs.**
 
 **Outputs some helpful information about the command.**
 
-- **Alias:** None
 - **Default:** None
 - **Environment Variable:** None
 - **Required:** No
@@ -115,7 +119,7 @@ check the New Relic docs.**
 **With all required options**
 
 ```
-browserslist-new-relic --appId=48927374561 --accountId=45182429 --apiKey=Hus4-hsSDFjls802dsSfjI82-PZhsqotm2H86
+browserslist-new-relic --appId 48927374561 --accountId 45182429 --apiKey Hus4-hsSDFjls802dsSfjI82-PZhsqotm2H86
 ```
 
 **With all required options as environment variables**
@@ -124,16 +128,16 @@ browserslist-new-relic --appId=48927374561 --accountId=45182429 --apiKey=Hus4-hs
 browserslist-new-relic
 ```
 
-**With custom duration of 2 days**
+**With duration of 2 days**
 
 ```
-browserslist-new-relic --duration=2 --appId=48927374561 --accountId=45182429 --apiKey=Hus4-hsSDFjls802dsSfjI82-PZhsqotm2H86
+browserslist-new-relic --duration 2 --appId 48927374561 --accountId 45182429 --apiKey Hus4-hsSDFjls802dsSfjI82-PZhsqotm2H86
 ```
 
 **With debugging output**
 
 ```
-browserslist-new-relic --debug --appId=48927374561 --accountId=45182429 --apiKey=Hus4-hsSDFjls802dsSfjI82-PZhsqotm2H86
+browserslist-new-relic --debug --appId 48927374561 --accountId 45182429 --apiKey Hus4-hsSDFjls802dsSfjI82-PZhsqotm2H86
 ```
 
 ## Issues
