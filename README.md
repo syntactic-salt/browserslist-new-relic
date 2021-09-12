@@ -14,26 +14,10 @@ Before you can run the command you'll need to prepare the following information:
 
 Check out the [Options](#options) section for specific details.
 
-__NPM >= 5.2__
-
 In the root of your project run
 
 ```
 npx browserslist-new-relic --appId=NR_APPLICATION_ID --accountId=NR_ACCOUNT_ID --apiKey=NR_API_KEY
-```
-
-__NPM < 5.2__
-
-Install globally
-
-```
-npm install -g browserslist-new-relic
-```
-
-In the root of your project run
-
-```
-browserslist-new-relic --appId=NR_APPLICATION_ID --accountId=NR_ACCOUNT_ID --apiKey=NR_API_KEY
 ```
 
 Now that you've successfully run the command you'll have generated `browserslist-stats.json` in your project's root
