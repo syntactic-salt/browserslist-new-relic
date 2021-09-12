@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const yargs = require('yargs/yargs');
-const { hideBin } = require('yargs/helpers')
+const { hideBin } = require('yargs/helpers');
 const getOptions = require('./lib/getOptions');
 const getQueryResults = require('./lib/getQueryResults');
 const transformResults = require('./lib/transformResults');
@@ -32,10 +32,9 @@ const argv = yargs(hideBin(process.argv))
     .option('duration', {
         describe: 'Days of browser usage to fetch',
         default: 7,
-        type: 'number'
+        type: 'number',
     })
-    .help()
-    .argv;
+    .help().argv;
 
 (async function () {
     const { apiKey, appId, accountId, duration, debug } = getOptions(argv);
@@ -47,13 +46,18 @@ const argv = yargs(hideBin(process.argv))
     }
 
     try {
-        const newRelicResults = await getQueryResults(query, {apiKey, accountId});
-        const browserslistStats = JSON.stringify(transformResults(newRelicResults), null, 2);
+        const newRelicResults = await getQueryResults(query, {
+            apiKey,
+            accountId,
+        });
+        const browserslistStats = JSON.stringify(
+            transformResults(newRelicResults),
+            null,
+            2
+        );
         fs.writeFileSync('./browserslist-stats.json', browserslistStats);
+        console.info('Finished generating browserslist-stats.json');
     } catch (error) {
         console.error(error, error.stack);
-        process.exit(1);
     }
-
-    console.info('Finished generating browserslist-stats.json');
-}());
+})();
