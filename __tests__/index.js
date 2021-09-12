@@ -43,10 +43,6 @@ beforeEach(() => {
     });
 });
 
-afterEach(() => {
-    jest.clearAllMocks();
-});
-
 describe('main file', () => {
     test('outputs an error when failing to get new relic results', async () => {
         getQueryResults.mockRejectedValueOnce(
