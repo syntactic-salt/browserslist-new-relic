@@ -4,6 +4,12 @@ A CLI tool that generates a [custom usage data](https://github.com/browserslist/
 [Browserslist](https://github.com/browserslist/browserslist) from your
 [New Relic Browser](https://newrelic.com/products/browser-monitoring) data.
 
+[![npm package][npm-badge]][npm-link]
+[![node version][node-badge]][node-link]
+[![total downloads][downloads-badge]][downloads-link]
+[![license][license-badge]][license-link]
+[![open issues][issues-badge]][issues-link]
+
 ## How to use
 
 Before you can run the command you'll need to prepare the following information:
@@ -143,3 +149,18 @@ browserslist-new-relic --debug --appId 48927374561 --accountId 45182429 --apiKey
 ## Issues
 
 Please report any issues on [GitHub](https://github.com/syntactic-salt/browserslist-new-relic/issues).
+
+[npm-badge]: https://flat.badgen.net/npm/v/browserslist-new-relic?color=blue&icon=npm&cache=300&label
+[npm-link]: https://www.npmjs.com/package/browserslist-new-relic
+
+[node-badge]: https://flat.badgen.net/npm/node/browserslist-new-relic?color=blue&cache=300
+[node-link]: https://www.npmjs.com/package/browserslist-new-relic
+
+[downloads-badge]: https://flat.badgen.net/npm/dt/browserslist-new-relic?color=blue&cache=300
+[downloads-link]: https://www.npmjs.com/package/browserslist-new-relic
+
+[license-badge]: https://flat.badgen.net/github/license/syntactic-salt/browserslist-new-relic?color=blue&cache=300
+[license-link]: https://github.com/syntactic-salt/browserslist-new-relic/blob/master/LICENSE
+
+[issues-badge]: https://flat.badgen.net/github/open-issues/syntactic-salt/browserslist-new-relic?cache=300
+[issues-link]: https://github.com/syntactic-salt/browserslist-new-relic/issues
