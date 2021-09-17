@@ -94,12 +94,6 @@ Turns on output used for debugging issues.
 
 The number of days of browser usage data to fetch.
 
-**Note: New Relic's data retention period varies depending on your subscription level. At the time of writing, New
-Relic's free tier (Lite) has a 1 day retention period for browser usage statistics. That means if you have free tier
-(Lite), you will only get usage statistics for the past 1 day regardless of what you set here. For more information on
-[data retention periods](https://docs.newrelic.com/docs/accounts/original-accounts-billing/product-based-pricing/overview-data-retention-components),
-check the New Relic docs.**
-
 - **Default:** `7`
 - **Environment Variable:** None
 - **Required:** No
