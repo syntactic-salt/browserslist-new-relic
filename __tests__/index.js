@@ -1,39 +1,27 @@
-const fs = require('fs');
 const getQueryResults = require('../lib/getQueryResults');
-const getOptions = require('../lib/getOptions');
+const transformResults = require('../lib/transformResults');
+const browserslistNewRelic = require('../index');
 
-jest.mock('yargs/yargs', () => {
-    const mockYargs = () => {
-        return {
-            option: mockYargs,
-            help: mockYargs,
-            argv: {},
-        };
-    };
-
-    return jest.fn().mockImplementation(mockYargs);
-});
 jest.mock('../lib/getQueryResults');
-jest.mock('../lib/getOptions', () => {
-    return jest.fn().mockImplementation(() => {
-        return {
-            debug: false,
-            apiKey: '08sf9',
-            accountId: '34521432',
-            appId: '6543',
-            duration: 7,
-        };
-    });
-});
+jest.mock('../lib/transformResults');
 
 beforeAll(() => {
     jest.spyOn(console, 'log').mockImplementation(() => {});
     jest.spyOn(console, 'debug').mockImplementation(() => {});
     jest.spyOn(console, 'info').mockImplementation(() => {});
-    jest.spyOn(fs, 'writeFileSync').mockImplementation(() => {});
 });
 
+let mockOptions;
+
 beforeEach(() => {
+    mockOptions = {
+        debug: false,
+        apiKey: '08sf9',
+        accountId: '34521432',
+        appId: '6543',
+        duration: 7,
+    };
+
     getQueryResults.mockResolvedValue({
         totalResult: { results: [{ count: 100 }] },
         facets: [
@@ -43,32 +31,28 @@ beforeEach(() => {
     });
 });
 
+afterEach(() => {
+    jest.resetAllMocks();
+});
+
 describe('main file', () => {
-    test('outputs an error when failing to get new relic results', async () => {
+    test('throws when failing to get results from new relic', () => {
         getQueryResults.mockRejectedValueOnce(
             new Error('Have you tried turning it off and on again?')
         );
-        jest.spyOn(console, 'error').mockImplementation(() => {});
-        jest.isolateModules(() => {
-            require('../index');
-        });
-        await new Promise((resolve) => setTimeout(resolve, 50));
-        expect(console.error).toHaveBeenCalledTimes(1);
+        return expect(browserslistNewRelic(mockOptions)).rejects.toThrow();
     });
 
-    test('writes a custom usage data file', async () => {
-        jest.isolateModules(() => {
-            require('../index');
-        });
-        await new Promise((resolve) => setTimeout(resolve, 50));
-        expect(fs.writeFileSync).toHaveBeenCalledTimes(1);
+    test('returns usage data', () => {
+        const mockUsageData = { chrome: { 90: 100 } };
+        transformResults.mockReturnValueOnce(mockUsageData);
+        return expect(browserslistNewRelic(mockOptions)).resolves.toStrictEqual(
+            mockUsageData
+        );
     });
 
-    test('outputs debugging info', () => {
-        getOptions.mockReturnValueOnce({ ...getOptions(), ...{ debug: true } });
-        jest.isolateModules(() => {
-            require('../index');
-        });
+    test('outputs debugging info', async () => {
+        await browserslistNewRelic({ ...mockOptions, debug: true });
         expect(console.debug).toHaveBeenCalledTimes(2);
     });
 });

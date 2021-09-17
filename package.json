@@ -5,11 +5,12 @@
   "engines": {
     "node": ">=12.0.0"
   },
+  "main": "index.js",
   "bin": {
-    "browserslist-new-relic": "index.js"
+    "browserslist-new-relic": "bin/cmd.js"
   },
   "scripts": {
-    "build": "rm -rf ./dist && mkdirp ./dist/lib && cp -a ./lib/*.js ./dist/lib/ && cp -a ./index.js ./dist/ && cp -a ./package.json ./dist/ && cp -a ./LICENSE ./dist/ && cp -a ./README.md ./dist/",
+    "build": "rm -rf ./dist && mkdirp ./dist/lib && cp -a ./lib/*.js ./dist/lib/ && mkdirp ./dist/bin && cp -a ./bin/cmd.js ./dist/bin/ && cp -a ./index.js ./dist/ && cp -a ./package.json ./dist/ && cp -a ./LICENSE ./dist/ && cp -a ./README.md ./dist/",
     "clean": "rm -rf dist/ coverage/ node_modules/",
     "lint": "eslint . --ext .js",
     "lint:fix": "npm run lint -- --fix",
