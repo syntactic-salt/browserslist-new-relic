@@ -1,31 +1,7 @@
 const fs = require('fs');
-const getOptions = require('../../lib/getOptions');
 const browserslistNewRelic = require('../../index');
 
 jest.mock('../../index');
-jest.mock('yargs/yargs', () => {
-    const mockYargs = () => {
-        return {
-            option: mockYargs,
-            help: mockYargs,
-            argv: {},
-        };
-    };
-
-    return jest.fn().mockImplementation(mockYargs);
-});
-const mockOptions = {
-    debug: false,
-    apiKey: '08sf9',
-    accountId: '34521432',
-    appId: '6543',
-    duration: 7,
-};
-jest.mock('../../lib/getOptions', () => {
-    return jest.fn().mockImplementation(() => {
-        return mockOptions;
-    });
-});
 
 beforeAll(() => {
     jest.spyOn(console, 'log').mockImplementation(() => {});
@@ -36,6 +12,16 @@ beforeAll(() => {
 
 beforeEach(() => {
     browserslistNewRelic.mockResolvedValue({ chrome: { 90: 100 } });
+    process.argv = [
+        'node.exe',
+        '/browserslist-new-relic/bin/cmd',
+        '--accountId',
+        '34521432',
+        '--appId',
+        '6543',
+        '--apiKey',
+        '08sf9'
+    ];
 });
 
 afterEach(() => {
@@ -64,7 +50,8 @@ describe('command file', () => {
     });
 
     test('initiates debugging', () => {
-        getOptions.mockReturnValueOnce({ ...mockOptions, debug: true });
+        process.argv.push('--debug');
+        process.argv.push('true');
         jest.isolateModules(() => {
             require('../cmd');
         });
