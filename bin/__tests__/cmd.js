@@ -20,7 +20,7 @@ beforeEach(() => {
         '--appId',
         '6543',
         '--apiKey',
-        '08sf9'
+        '08sf9',
     ];
 });
 

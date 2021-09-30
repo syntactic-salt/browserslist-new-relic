@@ -38,7 +38,6 @@
   },
   "homepage": "https://github.com/syntactic-salt/browserslist-new-relic#readme",
   "dependencies": {
-    "node-fetch": "2.6.1",
     "yargs": "17.2.1"
   },
   "devDependencies": {
