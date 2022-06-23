@@ -38,17 +38,17 @@
   },
   "homepage": "https://github.com/syntactic-salt/browserslist-new-relic#readme",
   "dependencies": {
-    "yargs": "17.2.1"
+    "yargs": "17.5.1"
   },
   "devDependencies": {
-    "eslint": "7.32.0",
-    "eslint-config-prettier": "8.3.0",
-    "eslint-plugin-jest": "24.5.0",
-    "eslint-plugin-jsdoc": "36.1.0",
+    "eslint": "8.18.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-jest": "26.5.3",
+    "eslint-plugin-jsdoc": "39.3.3",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "4.0.0",
-    "jest": "27.2.4",
+    "jest": "28.1.1",
     "mkdirp": "1.0.4",
-    "prettier": "2.4.1"
+    "prettier": "2.7.1"
   }
 }
